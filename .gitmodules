@@ -7,6 +7,6 @@
 [submodule "deps/abseil"]
 	path = deps/abseil
 	url = https://github.com/abseil/abseil-cpp
-[submodule "artifact-glm"]
-	path = artifact-glm
+[submodule "deps/glm"]
+	path = deps/glm
 	url = https://bitbucket.org/locomotor/artifact-glm
