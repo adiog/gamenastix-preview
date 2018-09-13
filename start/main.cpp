@@ -1,5 +1,5 @@
-// This file is a part of opengl-stickyman project.
-// Copyright 2018 Aleksander Gajewski <adiog@brainfuck.pl>.
+// This file is a part of treadmill-t2-opengl project.
+// Copyright 2018 Disco WTMH S.A.
 
 #include <udpbox.h>
 #include <iostream>
@@ -24,7 +24,7 @@ int main_opengl(int argc, char** argv, OnLoadCallback onLoadCallback)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
     glutInitWindowPosition(50, 50);
-    glutCreateWindow("opengl-stickyman");
+    glutCreateWindow("treadmill-t2-opengl 2.0.2");
 
     OrbitCamera::resetCamera();
     Display::intialization();
