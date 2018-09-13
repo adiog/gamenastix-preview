@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(opengl-stickyman CXX)
+project(treadmill-t2-opengl CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/sensor-fusion)
@@ -29,8 +29,8 @@ else()
     target_link_libraries(openglStickyman ${CMAKE_CURRENT_SOURCE_DIR}/deps/glut-3.7.6-bin/glut32.lib ws2_32 sensorFusion opengl32 glu32 pthread)
 endif()
 
-add_executable(sensor ${CMAKE_CURRENT_SOURCE_DIR}/start/main.cpp)
-target_link_libraries(sensor openglStickyman)
+add_executable(treadmill-t2-opengl ${CMAKE_CURRENT_SOURCE_DIR}/start/main.cpp)
+target_link_libraries(treadmill-t2-opengl openglStickyman)
 
 add_executable(template_test test/template_test.cpp)
 target_link_libraries(template_test gtest pthread)
