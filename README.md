@@ -5,4 +5,5 @@
 * Install CLion (https://www.jetbrains.com/clion/)
 * Load the project directory
 * Build with Clion detected toolchain
+* Copy deps/glut-3.7.6-bin/glut32.dll to binary folder
 
