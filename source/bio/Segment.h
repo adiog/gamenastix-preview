@@ -23,7 +23,8 @@ enum class Segment
     LowerLegLeft,
     LowerLegRight,
     FootLeft,
-    FootRight
+    FootRight,
+    Unknown
 };
 }
 

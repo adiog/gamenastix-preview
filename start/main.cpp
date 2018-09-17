@@ -56,6 +56,10 @@ int main(int argc, char** argv)
     udpbox::Server server(1234);
     server.setOnDatagramCallback([&](udpbox::Datagram&& datagram) {
         bio::Segment segment = network::Matcher::match(datagram);
+        if (segment == bio::Segment::Unknown)
+        {
+            return;
+        }
         sensorFusion::SensorData sensorData = network::Dispatcher::dispatch(datagram);
         sampleModel.at(segment).update(sensorData);
 #ifdef DEBUG
@@ -68,10 +72,9 @@ int main(int argc, char** argv)
         openGLContext.scene.apply(sampleModel.getLayout());
     });
 
-    main_opengl(argc, argv,
-                [&server]() {
-                    server.start();
-                });
+    main_opengl(argc, argv, [&server]() {
+        server.start();
+    });
 
     return 0;
 }
