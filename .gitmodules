@@ -1,0 +1,12 @@
+[submodule "deps/udpbox"]
+	path = deps/udpbox
+	url = https://github.com/adiog/udpbox
+[submodule "deps/sensor-fusion"]
+	path = deps/sensor-fusion
+	url = https://github.com/adiog/embed-sensor-fusion
+[submodule "deps/abseil"]
+	path = deps/abseil
+	url = https://github.com/abseil/abseil-cpp
+[submodule "deps/glm"]
+	path = deps/glm
+	url = https://bitbucket.org/locomotor/artifact-glm
