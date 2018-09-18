@@ -42,7 +42,7 @@ struct MouseController
 
     static void pressedMouseCallback(int x, int y)
     {
-        openGLContext.gyaw += 360 + openGLContext.old_x - x;
+        openGLContext.gyaw += 360 - (openGLContext.old_x - x);
         openGLContext.gpitch += 360 + openGLContext.old_y - y;
         openGLContext.gyaw %= 360;
         openGLContext.gpitch %= 360;
