@@ -10,3 +10,6 @@
 [submodule "deps/glm"]
 	path = deps/glm
 	url = https://bitbucket.org/locomotor/artifact-glm
+[submodule "deps/glut"]
+	path = deps/glut
+	url = https://bitbucket.org/locomotor/artifact-glut-mingw32

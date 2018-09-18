@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.0)
 project(treadmill-t2-opengl CXX)
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
-
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/sensor-fusion)
 
 add_definitions(-DGLM_ENABLE_EXPERIMENTAL)
@@ -12,7 +10,8 @@ if(UNIX)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/abseil)
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/abseil)
 else()
-    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/glut-3.7.6-bin)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/glut)
 endif()
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/glm)
@@ -28,16 +27,14 @@ add_library(openglStickyman start/main.cpp ${sources} ${headers})
 if(UNIX)
     target_link_libraries(openglStickyman sensorFusion GL glut GLU absl_strings pthread)
 else()
-    target_link_libraries(openglStickyman ${CMAKE_CURRENT_SOURCE_DIR}/deps/glut-3.7.6-bin/glut32.lib ws2_32 sensorFusion opengl32 glu32 pthread)
+    target_link_libraries(openglStickyman ${CMAKE_CURRENT_SOURCE_DIR}/deps/glut/glut32.lib ws2_32 sensorFusion opengl32 glu32 pthread)
     file(
             COPY
-            ${CMAKE_CURRENT_SOURCE_DIR}/deps/glut-3.7.6-bin/glut32.dll
+            ${CMAKE_CURRENT_SOURCE_DIR}/deps/glut/glut32.dll
             DESTINATION
             ${CMAKE_CURRENT_BINARY_DIR}
     )
 endif()
-
-
 
 add_executable(treadmill-t2-opengl ${CMAKE_CURRENT_SOURCE_DIR}/start/main.cpp)
 target_link_libraries(treadmill-t2-opengl openglStickyman)
