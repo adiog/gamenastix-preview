@@ -20,6 +20,7 @@ public:
             : sensorMutex{std::make_unique<std::mutex>()}
             , fusion(std::make_unique<sensorFusion::Kalman>())
     {
+        initializeNPose();
     }
 
     void calibrate(CalibrationStep calibrationStep)
@@ -48,6 +49,11 @@ public:
     {
         std::unique_lock<std::mutex> sensorLock{*sensorMutex};
         return fusionData;
+    }
+
+    void initializeNPose()
+    {
+        fusionData = {glm::vec3{0, 0, 0}};
     }
 
 private:
