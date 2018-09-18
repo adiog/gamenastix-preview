@@ -1,5 +1,5 @@
-// This file is a part of opengl-stickyman project.
-// Copyright 2018 Aleksander Gajewski <adiog@brainfuck.pl>.
+// This file is a part of treadmill-t2-opengl project.
+// Copyright 2018 Disco WTMH S.A.
 
 #include <udpbox.h>
 #include <iostream>
@@ -24,7 +24,7 @@ int main_opengl(int argc, char** argv, OnLoadCallback onLoadCallback)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
     glutInitWindowPosition(50, 50);
-    glutCreateWindow("opengl-stickyman");
+    glutCreateWindow("DiscoVR Treadmill OpenGl 2.0.2");
 
     OrbitCamera::resetCamera();
     Display::intialization();
@@ -56,6 +56,10 @@ int main(int argc, char** argv)
     udpbox::Server server(1234);
     server.setOnDatagramCallback([&](udpbox::Datagram&& datagram) {
         bio::Segment segment = network::Matcher::match(datagram);
+        if (segment == bio::Segment::Unknown)
+        {
+            return;
+        }
         sensorFusion::SensorData sensorData = network::Dispatcher::dispatch(datagram);
         sampleModel.at(segment).update(sensorData);
 #ifdef DEBUG
@@ -68,10 +72,9 @@ int main(int argc, char** argv)
         openGLContext.scene.apply(sampleModel.getLayout());
     });
 
-    main_opengl(argc, argv,
-                [&server]() {
-                    server.start();
-                });
+    main_opengl(argc, argv, [&server]() {
+        server.start();
+    });
 
     return 0;
 }

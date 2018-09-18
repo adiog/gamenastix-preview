@@ -1,4 +1,4 @@
-// This file is a part of treadmill-t2-opengl project.
+// This file is a part of Treadmill project.
 // Copyright 2018 Disco WTMH S.A.
 
 #pragma once
@@ -23,7 +23,8 @@ enum class Segment
     LowerLegLeft,
     LowerLegRight,
     FootLeft,
-    FootRight
+    FootRight,
+    Unknown
 };
 }
 
