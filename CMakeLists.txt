@@ -18,6 +18,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/glm)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/udpbox/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/sensor-fusion/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/sensor-fusion/variant/imu-kalman)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/treadmill-t2-biomodel/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/treadmill-t2-driver-gamenastix-helper/include)
+
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/treadmill-t2-biomodel/)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
@@ -37,7 +41,7 @@ else()
 endif()
 
 add_executable(treadmill-t2-opengl ${CMAKE_CURRENT_SOURCE_DIR}/start/main.cpp)
-target_link_libraries(treadmill-t2-opengl openglStickyman)
+target_link_libraries(treadmill-t2-opengl openglStickyman bioModel)
 
 add_executable(template_test test/template_test.cpp)
 target_link_libraries(template_test gtest pthread)
