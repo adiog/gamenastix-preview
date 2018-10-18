@@ -6,4 +6,5 @@
 * Load the project directory
 * Build with Clion detected toolchain
 * Copy deps/glut-3.7.6-bin/glut32.dll to binary folder
+* Copy deps/mingw64/*.dll to binary folder
 
