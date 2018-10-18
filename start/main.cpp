@@ -56,14 +56,21 @@ model::Layout getLayout(biomodel::deepModel::Model& model)
         {bio::Segment::UpperLegRight, Part::RIGHT_LEG_UPPER},
         {bio::Segment::LowerLegRight, Part::RIGHT_LEG_LOWER}};
 
-    for (auto &mappingEntry : mapping)
+    for (auto& mappingEntry : mapping)
     {
         auto params = model.get(mappingEntry.second);
-        layout.segmentLayout[mappingEntry.first] = glm::vec3(180-params[1], params[0], params[2]);
+        if ((params[0] == 0) && (params[1] == 0) && (params[2] == 0))
+        {
+            layout.segmentLayout[mappingEntry.first] = glm::vec3(0, 0, 180);
+        }
+        else
+        {
+            layout.segmentLayout[mappingEntry.first] = glm::vec3(180 - params[1], params[0], params[2]);
+        }
     }
 
-    layout.segmentLayout[bio::Segment::FootLeft] = {-90,0,0};
-    layout.segmentLayout[bio::Segment::FootRight] = {-90,0,0};
+    layout.segmentLayout[bio::Segment::FootLeft] = {-90, 0, 0};
+    layout.segmentLayout[bio::Segment::FootRight] = {-90, 0, 0};
 
     return layout;
 }
