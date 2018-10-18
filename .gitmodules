@@ -19,3 +19,6 @@
 [submodule "deps/treadmill-t2-driver-gamenastix-helper"]
 	path = deps/treadmill-t2-driver-gamenastix-helper
 	url = https://bitbucket.org/locomotor/treadmill-t2-driver-gamenastix-helper
+[submodule "deps/mingw64"]
+	path = deps/mingw64
+	url = https://bitbucket.org/locomotor/artifact-mingw64
