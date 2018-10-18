@@ -27,7 +27,7 @@ int main_opengl(int argc, char** argv, OnLoadCallback onLoadCallback)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
     glutInitWindowPosition(50, 50);
-    glutCreateWindow("DiscoVR Treadmill OpenGl 2.1.0");
+    glutCreateWindow("DiscoVR Treadmill OpenGl 2.1.1");
 
     OrbitCamera::resetCamera();
     Display::intialization();
