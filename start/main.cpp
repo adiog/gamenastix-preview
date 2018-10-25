@@ -8,13 +8,10 @@
 #include <component/Scene.h>
 #include <deepModel/Model.h>
 #include <deepModel/Treadmill.h>
-#include <network/Dispatcher.h>
-#include <network/Matcher.h>
 #include <opengl/ContextMenu.h>
 #include <opengl/Display.h>
 #include <opengl/KeyboardController.h>
 #include <opengl/MouseController.h>
-#include <sensor/Sensor.h>
 
 
 template <typename OnLoadCallback>
@@ -27,7 +24,7 @@ int main_opengl(int argc, char** argv, OnLoadCallback onLoadCallback)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
     glutInitWindowPosition(50, 50);
-    glutCreateWindow("DiscoVR Treadmill OpenGl 2.1.1");
+    glutCreateWindow("Gamenastix Preview (C) DiscoWTMH");
 
     OrbitCamera::resetCamera();
     Display::intialization();
