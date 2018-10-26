@@ -44,24 +44,23 @@ public:
         {
             auto& q4 = it->second;
 
-            float x = q4[0];
-            float y = q4[1];
-            float z = q4[2];
-
-            if (x != 0)
+            float roll = q4[2];
+            float pitch = q4[1];
+#define SUPPORT_ROLL
+#define SUPPORT_PITCH
+#ifdef SUPPORT_ROLL
+            if (roll != 0)
             {
-                glRotatef(x, 1, 0, 0);
+                glRotatef(roll, 0, 1, 0);
             }
-            if (y != 0)
+#endif
+#ifdef SUPPORT_PITCH
+            if (pitch != 0)
             {
-                glRotatef(y, 0, 1, 0);
+                glRotatef(pitch, -1, 0, 0);
             }
-            if (z != 0)
-            {
-                glRotatef(z, 0, 0, 1);
-            }
+#endif
         }
-
     }
 
     void derotate(const model::Layout& layout)
@@ -71,21 +70,21 @@ public:
         {
             auto& q4 = it->second;
 
-            float x = q4[0];
-            float y = q4[1];
-            float z = q4[2];
-            if (z != 0)
+            float roll = q4[2];
+            float pitch = q4[1];
+
+#ifdef SUPPORT_PITCH
+            if (pitch != 0)
             {
-                glRotatef(-z, 0, 0, 1);
+                glRotatef(-pitch, -1, 0, 0);
             }
-            if (y != 0)
+#endif
+#ifdef SUPPORT_ROLL
+            if (roll != 0)
             {
-                glRotatef(-y, 0, 1, 0);
+                glRotatef(-roll, 0, 1, 0);
             }
-            if (x != 0)
-            {
-                glRotatef(-x, 1, 0, 0);
-            }
+#endif
         }
 
     }
