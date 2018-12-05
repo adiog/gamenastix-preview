@@ -19,3 +19,6 @@
 [submodule "deps/udpbox"]
 	path = deps/udpbox
 	url = https://github.com/discowtmh/udpbox
+[submodule "deps/googletest"]
+	path = deps/googletest
+	url = https://github.com/discowtmh/googletest

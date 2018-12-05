@@ -21,6 +21,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/udpbox/include)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/gamenastix-biomodel/)
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/googletest/googletest/include)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/deps/googletest/)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/source)
 
 file(GLOB_RECURSE sources ${CMAKE_CURRENT_SOURCE_DIR}/source/**.cpp)

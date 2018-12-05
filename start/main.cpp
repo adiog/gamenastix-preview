@@ -77,7 +77,7 @@ int main(int argc, char** argv)
     biomodel::deepModel::Model model = biomodel::deepModel::Treadmill().getModel();
     openGLContext.scene.apply(getLayout(model));
 
-    udpbox::Server server(1234);
+    udpbox::Server server(1111);
     server.setOnDatagramCallback([&](udpbox::Datagram&& datagram) {
         Message message = datagram.payload;
         model.update(message);
